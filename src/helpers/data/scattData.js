@@ -19,4 +19,8 @@ const getScattsByUid = (uid) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getScattsByUid };
+const getSingleScatt = (scattId) => axios.get(`${baseUrl}/scatts/${scattId}.json`);
+
+const postScatt = (newScatt) => axios.post(`${baseUrl}/scatts.json`, newScatt);
+
+export default { getScattsByUid, getSingleScatt, postScatt };
