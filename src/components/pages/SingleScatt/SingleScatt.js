@@ -15,10 +15,18 @@ class SingleScatt extends React.Component {
       .catch((err) => console.error('unable to get single scatt: '));
   }
 
+  removeScatt = () => {
+    const { scattId } = this.props.match.params;
+    scattData.deleteScatt(scattId)
+      .then(() => this.props.history.push('/home'))
+      .catch((err) => console.error('unable to delete single scatt: ', err));
+  }
+
   render() {
     const { scatt } = this.state;
     return (
       <div className="SingleScatt">
+        <button className="btn btn-danger" onClick={this.removeScatt}>delete</button>
         <h1>{scatt.location}</h1>
         <p>Shape: {scatt.shape}</p>
         <p>Size: {scatt.size}</p>
