@@ -29,7 +29,8 @@ class NewScatt extends React.Component {
 
   shapeChange = (e) => {
     e.preventDefault();
-    this.setState({ scattShape: e.target.vaule });
+    this.setState({ scattShape: e.target.value });
+    console.error('WHY SHAPE', e.target.value);
   }
 
   sizeChange = (e) => {
@@ -72,7 +73,7 @@ class NewScatt extends React.Component {
       color: scattColor,
       shape: scattShape,
       size: scattSize,
-      temperature: scattTemperature,
+      temperature: scattTemperature * 1,
       viscosity: scattViscosity,
       location: scattLocation,
       notes: scattNotes,

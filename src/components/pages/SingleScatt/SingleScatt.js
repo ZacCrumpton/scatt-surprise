@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './SingleScatt.scss';
 import scattData from '../../../helpers/data/scattData';
@@ -24,8 +25,11 @@ class SingleScatt extends React.Component {
 
   render() {
     const { scatt } = this.state;
+    const { scattId } = this.props.match.params;
+    const editLink = `/edit/${scattId}`;
     return (
       <div className="SingleScatt">
+        <Link className="btn btn-warning" to={editLink}>edit</Link>
         <button className="btn btn-danger" onClick={this.removeScatt}>delete</button>
         <h1>{scatt.location}</h1>
         <p>Shape: {scatt.shape}</p>
